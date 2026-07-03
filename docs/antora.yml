@@ -1,0 +1,6 @@
+name: csi-external-snapshotter
+title: csi-external-snapshotter
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/partials/nav.adoc
