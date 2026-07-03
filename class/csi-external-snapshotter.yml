@@ -5,6 +5,32 @@ parameters:
           - ${_base_directory}/component/app.jsonnet
         input_type: jsonnet
         output_path: .
+      # crd kustomize
+      - input_paths:
+          - ${_base_directory}/component/crd.jsonnet
+        input_type: jsonnet
+        output_path: ${_base_directory}/manifests/crd
+      - input_paths:
+          - ${_kustomize_wrapper}
+        input_type: external
+        output_path: .
+        env_vars:
+          INPUT_DIR: ${_base_directory}/manifests/crd
+        args:
+          - \${compiled_target_dir}/${_instance}/10_kustomize/crd
+      # controller kustomize
+      - input_paths:
+          - ${_base_directory}/component/kustomization.jsonnet
+        input_type: jsonnet
+        output_path: ${_base_directory}/manifests/snapshot-controller
+      - input_paths:
+          - ${_kustomize_wrapper}
+        input_type: external
+        output_path: .
+        env_vars:
+          INPUT_DIR: ${_base_directory}/manifests/snapshot-controller
+        args:
+          - \${compiled_target_dir}/${_instance}/10_kustomize/snapshot-controller
       - input_paths:
           - ${_base_directory}/component/main.jsonnet
         input_type: jsonnet

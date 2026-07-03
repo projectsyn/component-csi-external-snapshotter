@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/part-of: csi-external-snapshotter
+  name: syn-csi-snapshot-controller-role
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: syn-csi-snapshot-controller-runner
+subjects:
+- kind: ServiceAccount
+  name: syn-csi-snapshot-controller
+  namespace: syn-csi-external-snapshotter

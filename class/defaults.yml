@@ -2,4 +2,15 @@ parameters:
   csi_external_snapshotter:
     =_metadata:
       multi_tenant: true
+
     namespace: syn-csi-external-snapshotter
+
+    manifestVersion: ${csi_external_snapshotter:images:external-snapshotter:tag}
+
+    images:
+      external-snapshotter:
+        registry: registry.k8s.io
+        repository: sig-storage/snapshot-controller
+        tag: v8.6.0
+
+    kustomizeInput: {}
