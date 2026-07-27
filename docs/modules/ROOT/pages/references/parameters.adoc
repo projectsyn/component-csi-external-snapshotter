@@ -10,10 +10,27 @@ default:: `syn-csi-external-snapshotter`
 
 The namespace in which to deploy this component.
 
+== `manifestVersion`
 
-== Example
+[horizontal]
+type:: string
+default:: `${csi_external_snapshotter:images:external-snapshotter:tag}`
 
-[source,yaml]
-----
-namespace: example-namespace
-----
+The version (tag) to use when rendering the Kustomization for the CSI external snapshotter.
+
+== `images`
+
+[horizontal]
+type:: dict
+default:: See https://github.com/projectsyn/component-csi-external-snapshotter/blob/master/class/defaults.yml[`class/defaults.yml`]
+
+The container images used by the component.
+
+
+== `kustomizeInput`
+
+[horizontal]
+type:: dict
+default:: `{}`
+
+Additional Kustomize input for the CSI external snapshotter Kustomization.
