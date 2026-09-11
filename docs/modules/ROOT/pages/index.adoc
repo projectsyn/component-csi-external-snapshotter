@@ -1,5 +1,7 @@
 = csi-external-snapshotter
 
-csi-external-snapshotter is a Commodore component to manage csi-external-snapshotter.
+csi-external-snapshotter is a Commodore component to manage the Kubernetes https://github.com/kubernetes-csi/external-snapshotter[csi-external-snapshotter].
+
+NOTE: The component raises a compilation error on OpenShift, since OpenShift itself installs the external snapshotter.
 
 See the xref:references/parameters.adoc[parameters] reference for further details.

@@ -3,7 +3,15 @@ local inv = kap.inventory();
 local params = inv.parameters.csi_external_snapshotter;
 local argocd = import 'lib/argocd.libjsonnet';
 
-local app = argocd.App('csi-external-snapshotter', params.namespace);
+local app = argocd.App('csi-external-snapshotter', params.namespace) {
+  spec+: {
+    syncPolicy+: {
+      syncOptions+: [
+        'ServerSideApply=true',
+      ],
+    },
+  },
+};
 
 local appPath =
   local project = std.get(std.get(app, 'spec', {}), 'project', 'syn');
