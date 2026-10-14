@@ -11,6 +11,6 @@ parameters:
       external-snapshotter:
         registry: registry.k8s.io
         repository: sig-storage/snapshot-controller
-        tag: v8.6.0
+        tag: v8.7.0
 
     kustomizeInput: {}
